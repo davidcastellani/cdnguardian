@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Cdnguardian by davidcastellani</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/davidcastellani/cdnguardian">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/davidcastellani/cdnguardian/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/davidcastellani/cdnguardian/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Cdnguardian</h1>
+          <p>Allow only (currently Cloudflare&#39;s) IPv4 and IPv6 addresses to https on your system firewall(supporting only CentOS 7 w/ firewalld currently), used for full reverse proxying. </p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/davidcastellani">davidcastellani</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a id="what-is-cdnguardian" class="anchor" href="#what-is-cdnguardian" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is cdnguardian?</h1>
+
+<p>Right now? Not much.</p>
+
+<p>Eventually, the idea is to have a script that can be run by crontab(every 24 hours?) to update your systems firewall with the list of IPv4 and IPv6 addresses that belong to CloudFlare, and allow only traffic to https. </p>
+
+<p>The effect would be your system only allowing TCP port 443 traffic from IPs that belonged to CloudFlare, which would reduce the attack surface of your system. This requires that Cloudflare is caching your <strong>ENTIRE</strong> site, however. As no assets would be retrievable by an end user if it wasn't in CloudFlare's cache, as their IP would not be among the whitelisted IPs.</p>
+
+<h1>
+<a id="what-systems-are-you-targeting" class="anchor" href="#what-systems-are-you-targeting" aria-hidden="true"><span class="octicon octicon-link"></span></a>What systems are you targeting?</h1>
+
+<p>This initial release will target CentOS 7 64bit, with firewalld. Since systemd is becoming more and more widespread, this should work for the largest audience. </p>
+
+<h1>
+<a id="where-do-you-plan-to-take-thisroadmap" class="anchor" href="#where-do-you-plan-to-take-thisroadmap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where do you plan to take this(roadmap)?</h1>
+
+<p>In somewhat of an order of priority</p>
+
+<ul>
+<li>Error/sanity checking so the script does more good than harm, will need to be run as root or sudo</li>
+<li>Detect which firewall rules method is currently in use on the system, iptables/ip6tables or firewalld, and apply the whitelists accordingly.</li>
+<li>Save the rules for persistence across reboots based on the above detection.</li>
+<li>Easy way of reverting the changes this script makes</li>
+<li>Add support for additional CDN providers
+
+<ul>
+<li>Cloudfront?!</li>
+<li>Fastly?!</li>
+<li>MaxCDN?!</li>
+<li>?!</li>
+</ul>
+</li>
+</ul>
+
+<p>I want to eventually set the script to do a dig on my home router DDNS hostname  and add that as a whitelisted IP for SSH traffic. Same concept as above, but in addition to port 22 ssh traffic from my home router. Essentially locking my VPS from receiving traffic from anywhere but my home and the configured CDN provider.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-90943-4");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
