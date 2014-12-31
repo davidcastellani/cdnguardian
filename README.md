@@ -1,5 +1,5 @@
 
-# What is cdnguardian?
+# What is CDN Guardian?
 Right now? Not much.
 
 Eventually, the idea is to have a script that can be run by crontab(every 24 hours?) to update your systems firewall with the list of IPv4 and IPv6 addresses that belong to CloudFlare, and allow only traffic to https. 
