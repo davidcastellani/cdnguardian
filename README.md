@@ -21,7 +21,7 @@ In somewhat of an order of priority
  * Cloudfront?!
  * Fastly?!
  * MaxCDN?!
- * ?!
+ * ?!?
 
 
 I want to eventually set the script to do a dig on my home router DDNS hostname  and add that as a whitelisted IP for SSH traffic. Same concept as above, but in addition to port 22 ssh traffic from my home router. Essentially locking my VPS from receiving traffic from anywhere but my home and the configured CDN provider.
