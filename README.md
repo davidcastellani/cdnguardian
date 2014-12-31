@@ -2,9 +2,9 @@
 # What is CDN Guardian?
 Right now? Not much.
 
-Eventually, the idea is to have a script that can be run by crontab(every 24 hours?) to update your systems firewall with the list of IPv4 and IPv6 addresses that belong to CloudFlare, and allow only traffic to https. 
+Eventually, the idea is to have a script that can be run by crontab(every 24 hours?) to update your systems firewall with the list of IPv4 and IPv6 addresses that belong to CloudFlare, and allow only traffic to https and https. 
 
-The effect would be your system only allowing TCP port 443 traffic from IPs that belonged to CloudFlare, which would reduce the attack surface of your system. This requires that Cloudflare is caching your **ENTIRE** site, however. As no assets would be retrievable by an end user if it wasn't in CloudFlare's cache, as their IP would not be among the whitelisted IPs.
+The effect would be your system only allowing TCP port 443 and 80 traffic from IPs that belonged to CloudFlare, which would reduce the attack surface of your system. This requires that Cloudflare is caching your **ENTIRE** site, however. As no assets would be retrievable by an end user if it wasn't in CloudFlare's cache, as their IP would not be among the whitelisted IPs.
 
 # What systems are you targeting?
 
